@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { TDATA } from "@/types/data";
 import { FcOpenedFolder, FcFolder, FcFile } from "react-icons/fc";
+import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
 
 const FolderItem = ({ item }: { item: TDATA }) => {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
@@ -22,9 +23,15 @@ const FolderItem = ({ item }: { item: TDATA }) => {
         <p>
           {item.isFolder ? (
             isOpen ? (
-              <FcOpenedFolder size={20} />
+              <span className="flex items-center">
+                <IoIosArrowDown color="#bdbdbd" />
+                <FcOpenedFolder size={20} />
+              </span>
             ) : (
-              <FcFolder size={20} />
+              <span className="flex items-center">
+                <IoIosArrowForward color="#8c8c8c" />
+                <FcFolder size={20} />
+              </span>
             )
           ) : (
             <FcFile size={20} />
